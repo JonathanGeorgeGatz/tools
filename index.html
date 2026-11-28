@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Tools · Build It With AI</title>
+<meta name="description" content="Free small-business tools built on camera with AI, checked and fixed on screen. No sign-up. Most run right in your browser.">
+<meta property="og:title" content="Free Tools · Build It With AI">
+<meta property="og:description" content="Free small-business tools built on camera with AI, checked and fixed on screen. No sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jonathangeorgegatz.github.io/tools/">
+<meta property="og:image" content="https://jonathangeorgegatz.github.io/tools/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Free tools that check their own math: 42 small-business tools, no sign-up, $0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jonathangeorgegatz.github.io/tools/og.png">
+<meta name="theme-color" content="#0d0b16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c5cff'/%3E%3Cpath d='M18 34l10 10 18-24' stroke='%23fff' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d0b16; --bg2:#151225; --card:#17142a; --card2:#1d1934; --line:#2b2647; --ink:#f4f1ff; --mute:#a7a0c8; --dim:#6f6893;
+  --v:#7c5cff; --v2:#b19bff;
+  --c-cash:#8b6dff; --c-cost:#ff6b4a; --c-price:#ffc23d; --c-people:#3dd6a0; --c-cust:#4ab3ff; --c-ops:#ff5fb0;
+  --r:18px;
+  --f: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --m: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);line-height:1.45;overflow-x:hidden;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+   radial-gradient(900px 520px at 8% -6%, rgba(124,92,255,.30), transparent 60%),
+   radial-gradient(700px 480px at 102% 8%, rgba(255,95,176,.16), transparent 60%),
+   radial-gradient(800px 600px at 50% 110%, rgba(61,214,160,.10), transparent 60%);}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(rgba(255,255,255,.09) 1px, transparent 1px);background-size:22px 22px;
+  mask-image:linear-gradient(180deg,#000 0%,transparent 75%);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 75%)}
+a{color:inherit}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 28px}}
+
+/* ---------- hero ---------- */
+header{padding:34px 0 10px}
+.brand{display:inline-flex;align-items:center;gap:10px;font:700 12px/1 var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--v2);
+  border:1px solid rgba(177,155,255,.35);background:rgba(124,92,255,.10);padding:9px 14px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--c-people);box-shadow:0 0 0 0 rgba(61,214,160,.7);animation:ping 2.2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(61,214,160,.6)}70%{box-shadow:0 0 0 10px rgba(61,214,160,0)}100%{box-shadow:0 0 0 0 rgba(61,214,160,0)}}
+h1{font-size:clamp(38px,8.4vw,86px);line-height:.95;letter-spacing:-.035em;margin:22px 0 16px;font-weight:850;max-width:13ch}
+h1 .hl{background:linear-gradient(92deg,#b19bff 0%,#ff5fb0 45%,#ffc23d 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .strike{position:relative;white-space:nowrap}
+h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:54%;height:.11em;background:var(--c-cost);border-radius:4px;transform:rotate(-2deg) scaleX(0);transform-origin:left;animation:strike .7s .6s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes strike{to{transform:rotate(-2deg) scaleX(1)}}
+.lede{font-size:clamp(16px,2.2vw,20px);color:var(--mute);max-width:58ch;margin:0 0 26px}
+.lede b{color:var(--ink);font-weight:650}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 30px;max-width:520px}
+.stat{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:12px 12px}
+@media(max-width:420px){.stat .n{font-size:24px}.stat .l{font-size:10px;letter-spacing:.06em}}
+.stat .n{font:800 28px/1 var(--f);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .l{font:600 11px/1.2 var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+
+/* ---------- featured ---------- */
+.feat{position:relative;display:grid;gap:18px;border-radius:24px;padding:22px;margin:4px 0 34px;text-decoration:none;overflow:hidden;
+  background:linear-gradient(135deg,#231b49 0%,#1a1532 55%,#2a1630 100%);border:1px solid rgba(177,155,255,.35);
+  box-shadow:0 30px 80px -30px rgba(124,92,255,.55)}
+.feat::before{content:"";position:absolute;inset:-1px;border-radius:24px;padding:1px;pointer-events:none;
+  background:conic-gradient(from var(--a,0deg),#7c5cff,#ff5fb0,#ffc23d,#3dd6a0,#7c5cff);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 6s linear infinite;opacity:.9}
+@property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spin{to{--a:360deg}}
+.feat .tag{display:inline-flex;gap:8px;align-items:center;font:800 11px/1 var(--m);letter-spacing:.16em;text-transform:uppercase;color:#14101f;background:var(--c-price);padding:8px 11px;border-radius:8px;width:max-content}
+.feat .ep{position:absolute;right:-6px;top:-24px;font:900 clamp(120px,22vw,230px)/1 var(--f);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px rgba(177,155,255,.22);pointer-events:none}
+.feat h2{margin:0;font-size:clamp(28px,5vw,48px);letter-spacing:-.03em;line-height:1;font-weight:850;position:relative}
+.feat .hook{margin:0;font-size:clamp(17px,2.4vw,22px);color:#ddd5ff;max-width:44ch;position:relative}
+.feat .hook em{font-style:normal;color:var(--c-price);font-weight:750}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:750;font-size:16px;color:#100c1d;background:linear-gradient(92deg,#c9b8ff,#ffffff);padding:14px 20px;border-radius:14px;width:max-content;position:relative;
+  box-shadow:0 10px 30px -10px rgba(201,184,255,.8);transition:transform .2s}
+.feat:hover .btn,.feat:focus-visible .btn{transform:translateX(4px)}
+.btn svg{transition:transform .2s}.feat:hover .btn svg{transform:translateX(3px)}
+@media(min-width:860px){.feat{grid-template-columns:1.2fr .8fr;align-items:end;padding:34px}.feat .right{justify-self:end;text-align:right}}
+.right .meta{font:600 12px/1.5 var(--m);color:var(--mute);letter-spacing:.06em;margin-bottom:14px}
+
+/* ---------- controls ---------- */
+.bar{position:sticky;top:0;z-index:5;margin:0 -16px;padding:12px 16px;background:rgba(13,11,22,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.bar.stuck{border-bottom-color:var(--line)}
+@media(min-width:720px){.bar{margin:0 -28px;padding:14px 28px}}
+.search{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:0 14px;height:48px}
+.search:focus-within{border-color:var(--v)}
+.search input{flex:1;background:none;border:0;outline:0;color:var(--ink);font:500 16px var(--f);min-width:0}
+.search input::placeholder{color:var(--dim)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;color:var(--mute);font:650 14px var(--f);padding:9px 13px;border-radius:999px;cursor:pointer;transition:all .15s}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--k,#fff)}
+.chip span{font:600 12px var(--m);color:var(--dim)}
+.chip:hover{color:var(--ink);border-color:#433b6b}
+.chip[aria-pressed="true"]{color:#120e1e;background:var(--k,#fff);border-color:var(--k,#fff)}
+.chip[aria-pressed="true"] i{background:#120e1e}.chip[aria-pressed="true"] span{color:#120e1e;opacity:.7}
+.chip.all{--k:#f4f1ff}
+
+/* ---------- grid ---------- */
+.count{font:600 12px var(--m);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:22px 0 12px}
+.grid{display:grid;gap:14px;grid-template-columns:1fr;margin-bottom:40px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{--k:var(--v);position:relative;display:flex;flex-direction:column;gap:10px;min-height:178px;padding:18px 18px 16px;border-radius:var(--r);text-decoration:none;overflow:hidden;
+  background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
+  transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .2s,box-shadow .22s;opacity:0;transform:translateY(14px)}
+.card.in{opacity:1;transform:none}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--k)}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(420px 160px at 100% 0%,color-mix(in srgb,var(--k) 22%,transparent),transparent 70%);opacity:.0;transition:opacity .25s;pointer-events:none}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:color-mix(in srgb,var(--k) 60%,var(--line));box-shadow:0 18px 40px -18px color-mix(in srgb,var(--k) 70%,transparent)}
+.card:hover::after,.card:focus-visible::after{opacity:1}
+.card:focus-visible{outline:2px solid var(--k);outline-offset:2px}
+.num{position:absolute;right:10px;top:-8px;font:900 82px/1 var(--f);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--k) 30%,transparent);pointer-events:none}
+@media(max-width:640px){.num{font-size:66px;top:-4px}}
+.top{display:flex;align-items:center;gap:8px;font:700 11px/1 var(--m);letter-spacing:.12em;text-transform:uppercase;color:var(--k)}
+.top b{color:var(--dim);font-weight:600}
+.card h3{margin:0;font-size:21px;line-height:1.12;letter-spacing:-.015em;font-weight:780;max-width:82%}
+.card p{margin:0;color:var(--mute);font-size:15px;flex:1}
+.card p .x{color:var(--ink)}
+.go{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:14px;color:var(--ink);padding-top:10px;border-top:1px dashed var(--line)}
+.go .r > svg{transition:transform .2s;color:var(--k)}
+.card:hover .go .r > svg{transform:translateX(4px)}
+.new{font:800 10px/1 var(--m);letter-spacing:.14em;background:var(--c-price);color:#14101f;padding:5px 7px;border-radius:6px}
+.empty{display:none;text-align:center;color:var(--mute);padding:40px 0 60px}
+
+/* ---------- how / footer ---------- */
+.how{display:grid;gap:12px;grid-template-columns:1fr;margin:8px 0 40px}
+@media(min-width:760px){.how{grid-template-columns:repeat(3,1fr)}}
+.step{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:rgba(255,255,255,.025)}
+.step .k{font:800 12px var(--m);letter-spacing:.12em;color:var(--v2)}
+.step h4{margin:8px 0 6px;font-size:18px;letter-spacing:-.01em}
+.step p{margin:0;color:var(--mute);font-size:15px}
+footer{border-top:1px solid var(--line);padding:26px 0 46px;color:var(--dim);font-size:14px}
+footer p{margin:0 0 8px;max-width:70ch}
+footer b{color:var(--mute)}
+
+/* ---------- youtube ---------- */
+.yt{position:relative;display:grid;gap:18px;align-items:center;border-radius:24px;padding:22px;margin:0 0 34px;overflow:hidden;
+  background:linear-gradient(120deg,#2a0f14 0%,#1a1124 60%,#15112a 100%);border:1px solid rgba(255,64,64,.35);box-shadow:0 30px 70px -34px rgba(255,40,40,.6)}
+.yt::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,48,48,.35),transparent 65%);pointer-events:none}
+.yt .logo{width:64px;height:64px;border-radius:18px;background:#ff1f1f;display:grid;place-items:center;color:#fff;box-shadow:0 12px 30px -8px rgba(255,31,31,.8)}
+.yt .kick{font:800 11px/1 var(--m);letter-spacing:.16em;text-transform:uppercase;color:#ff8a8a}
+.yt h2{margin:8px 0 8px;font-size:clamp(26px,4.4vw,40px);line-height:1.02;letter-spacing:-.03em;font-weight:850}
+.yt p{margin:0;color:#e2d6e6;max-width:52ch;font-size:16px}
+.yt .acts{display:flex;flex-wrap:wrap;gap:10px;position:relative;z-index:1}
+.ytbtn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:16px;text-decoration:none;padding:14px 20px;border-radius:14px;transition:transform .15s,box-shadow .2s}
+.ytbtn.red{background:#ff1f1f;color:#fff;box-shadow:0 12px 30px -10px rgba(255,31,31,.9)}
+.ytbtn.ghost{background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.ytbtn:hover{transform:translateY(-2px)}
+.ytbtn:focus-visible,.soc a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(min-width:860px){.yt{grid-template-columns:auto 1fr auto;padding:28px 32px;gap:26px}}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hyt{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 14px var(--f);color:#fff;background:rgba(255,31,31,.16);border:1px solid rgba(255,64,64,.45);padding:8px 13px;border-radius:999px}
+.hyt svg{color:#ff3b3b}
+.hyt:hover{background:rgba(255,31,31,.28)}
+/* ---------- socials ---------- */
+.soc{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 18px}
+.soc a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--mute);border:1px solid var(--line);background:rgba(255,255,255,.03);padding:10px 14px;border-radius:12px;font:650 14px var(--f);transition:all .15s}
+.soc a:hover{color:#fff;border-color:#4a4275;transform:translateY(-2px)}
+.soc a.main{color:#fff;background:#ff1f1f;border-color:#ff1f1f}
+.soc a.main:hover{background:#ff3838}
+.follow{font:700 12px var(--m);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:4px}
+/* card: tool link stretched over the card, optional watch button above it */
+.card .stretch{position:absolute;inset:0;z-index:1;border-radius:var(--r)}
+.card .stretch:focus-visible{outline:2px solid var(--k);outline-offset:2px}
+.card .watch{position:relative;z-index:2;display:inline-flex;align-items:center;gap:7px;font:700 13px var(--f);color:#fff;text-decoration:none;background:rgba(255,31,31,.18);border:1px solid rgba(255,64,64,.5);padding:6px 10px;border-radius:9px}
+.card .watch:hover{background:#ff1f1f}
+.go .r{display:flex;align-items:center;gap:10px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}h1 .strike::after{transform:rotate(-2deg) scaleX(1)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="hdr"><span class="brand"><span class="dot"></span>Build It With AI · Free tools</span>
+    <a class="hyt" href="https://www.youtube.com/@jonathangatz" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Watch on YouTube</a></div>
+    <h1>Free tools that <span class="hl">check their own math.</span></h1>
+    <p class="lede">Every tool here was built on camera with AI. When the first draft gets something wrong, <b>you watch it get caught</b> and fixed. Free to use. No sign-up. Your files stay on your computer.</p>
+    <div class="stats">
+      <div class="stat"><div class="n" data-count="0" id="nTools">0</div><div class="l">free tools</div></div>
+      <div class="stat"><div class="n">$0</div><div class="l">to use, forever</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">sign-ups needed</div></div>
+    </div>
+  </header>
+
+  <a class="feat" id="feat" href="#"></a>
+
+  <section class="yt" aria-label="Watch the builds on YouTube">
+    <div class="logo"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+    <div><div class="kick">The show behind the tools</div>
+      <h2>Watch the AI get caught.</h2>
+      <p>Every tool here has its own episode: the prompts, the confident first drafts, and what it takes to make the numbers right.</p></div>
+    <div class="acts">
+      <a class="ytbtn red" href="https://www.youtube.com/@jonathangatz?sub_confirmation=1" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Subscribe</a>
+      <a class="ytbtn ghost" href="https://www.youtube.com/@jonathangatz/videos" target="_blank" rel="noopener">Watch the episodes →</a>
+    </div>
+  </section>
+
+  <div class="bar" id="bar">
+    <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="color:var(--dim)"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search refunds, payroll, fuel…" autocomplete="off" aria-label="Search the tools"></label>
+    <div class="chips" id="chips" role="toolbar" aria-label="Filter by topic"></div>
+  </div>
+
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">Nothing matches that yet. Try another word, or tap <b>All</b>.</div>
+
+  <div class="how">
+    <div class="step"><div class="k">01 · OPEN</div><h4>Tap a tool</h4><p>Each page opens with a sample business already loaded, so you can see what it does before you touch your own numbers.</p></div>
+    <div class="step"><div class="k">02 · PASTE</div><h4>Use your own exports</h4><p>Most tools read files you already have: a sales export, a bank statement, a timesheet. They run right in your browser.</p></div>
+    <div class="step"><div class="k">03 · CHECK</div><h4>Ask the right question</h4><p>A flag is a question, not a verdict. Every tool shows its arithmetic and refuses rows it can't read, out loud.</p></div>
+  </div>
+
+  <footer>
+    <div class="follow">Follow along</div>
+    <div class="soc"><a class="main" href="https://www.youtube.com/@jonathangatz" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a><a href="https://www.instagram.com/jonathangatz/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>Instagram</a><a href="https://www.tiktok.com/@jonathangatz" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a><a href="https://www.facebook.com/jonathangatz00/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>Facebook</a><a href="https://x.com/Jonathangatz1" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>X</a><a href="https://www.linkedin.com/in/jonathan-gatz/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></div>
+    <p><b>Watch every build</b> on YouTube: <b>Build It With AI</b>. Each episode shows the prompts, the drafts and the fixes.</p>
+    <p>The sample businesses in every tool are made up. A few tools live in Google Sheets instead of the browser; their pages explain how to start. Nothing here is legal, tax or accounting advice.</p>
+    <p>This page has no ads, no cookies and no tracking.</p>
+  </footer>
+</div>
+
+<script>
+const CATS = {
+  cash:   {name:"Cash & books",  c:"var(--c-cash)"},
+  cost:   {name:"Costs & fees",  c:"var(--c-cost)"},
+  price:  {name:"Pricing",       c:"var(--c-price)"},
+  people: {name:"People & pay",  c:"var(--c-people)"},
+  cust:   {name:"Customers",     c:"var(--c-cust)"},
+  ops:    {name:"Stock & ops",   c:"var(--c-ops)"}
+};
+// Newest first. Add one line per new episode at the top: [ep, name, slug, cat, hook, search words, optional YouTube video URL]
+const TOOLS = [
+ [42,"The Subscription Auditor","subscription-auditor","cost","A design suite raised its price twice. <span class=x>Nobody clicked agree.</span>","subscription saas recurring charges price increase duplicate charges card statement software"],
+ [41,"The Shrinkage Counter","shrinkage-counter","ops","12 drill kits should be on the shelf. <span class=x>6 were.</span>","shrinkage inventory count shoplifting theft hardware stock"],
+ [40,"The Rent Roll Auditor","rent-roll-auditor","cash","Paid on the 2nd every month, <span class=x>until she didn't</span>: $4,950 behind.","rent landlord tenants rent roll property late payments"],
+ [39,"The Refund Referee","refund-referee","cash","$214.50 went out in cash against an order that <span class=x>never existed</span>.","refunds returns fraud register orphan"],
+ [38,"The Job Profit Tracker","job-profit-tracker","cash","A <span class=x>$38,400</span> kitchen remodel that quietly lost $2,280.","job costing contractor labor profit"],
+ [37,"The Payout Matcher","payout-matcher","cash","The processor says it paid <span class=x>$6,131.39</span>. The bank never saw it.","stripe square deposits bank reconciliation"],
+ [36,"The Fuel Card Auditor","fuel-card-auditor","cost","<span class=x>31.8 gallons</span> went into a 24-gallon tank.","fleet gas fuel card trucks"],
+ [35,"The Gift Card Ledger","gift-card-ledger","cash","A 14-month-old gift card the shop still owes <span class=x>$70</span> on.","gift cards liability balance"],
+ [34,"The Slow Hour Finder","slow-hour-finder","people","Tuesday, 3 pm: four people on the clock, <span class=x>$28.14</span> in the till.","labor scheduling cafe staffing hours"],
+ [33,"The Dead Stock Counter","dead-stock-counter","ops","140 solar lights on the shelf. <span class=x>Last one sold July 8.</span>","inventory dead stock slow movers"],
+ [32,"The Lapse Catcher","lapse-catcher","ops","A driver's medical card expired. <span class=x>The roster still looked fine.</span>","expiry licenses certifications renewals compliance"],
+ [31,"The Swipe Fee Auditor","swipe-fee-auditor","cost","Promised 2.6% per swipe. <span class=x>Paid 3.10%.</span>","credit card processing fees merchant"],
+ [30,"The Mileage Rate Checker","mileage-rate-checker","people","The IRS rate changed mid-year. <span class=x>Who got paid the wrong one?</span>","mileage reimbursement irs expenses"],
+ [29,"The Commission Recount","commission-recount","people","A rep who sold exactly $40,000 was <span class=x>overpaid $800</span>.","sales commission tiers reps payroll"],
+ [28,"The Phantom Weight Finder","phantom-weight-finder","cost","A 4.08 lb box billed as <span class=x>16 lb</span>.","shipping dimensional weight usps boxes"],
+ [27,"The Plate Cost Counter","plate-cost-counter","price","The first draft priced a spoon of mayo at <span class=x>$14.90</span>.","restaurant food cost recipes menu"],
+ [26,"The Maintenance Minder","maintenance-minder","ops","A pickup <span class=x>4,100 miles past</span> its oil change, and nothing was red.","fleet vehicles equipment service"],
+ [25,"The 1099 Radar","1099-radar","cash","The 1099 line moved from $600 to <span class=x>$2,000</span>.","1099 contractors irs taxes vendors"],
+ [24,"The Tip Splitter","tip-splitter","people","$180.38 of servers' tips went to <span class=x>the manager</span>.","tips tip pool restaurant servers"],
+ [23,"The Supplier Bill Checker","supplier-bill-checker","cost","The same <span class=x>$612.75</span> invoice, sent twice under a new number.","invoices duplicate bills vendors accounts payable"],
+ [22,"The Client Promise Tracker","client-promise-tracker","cust","\"You said Tuesday.\" <span class=x>He was right.</span>","clients promises deadlines follow up"],
+ [21,"The PTO Tracker","pto-tracker","people","Claimed 19 vacation days. <span class=x>The ledger proves 6.</span>","pto vacation leave hr payroll"],
+ [20,"The Bookkeeping Tracker","bookkeeping-tracker","cash","The first draft filed <span class=x>a gas station</span> as a paying customer.","bookkeeping bank categories expenses"],
+ [19,"The Invoice Chaser","invoice-chaser","cash","The first build <span class=x>erased a $6,480 debt</span>.","invoices unpaid receivables collections"],
+ [18,"The Proposal Generator","proposal-generator","cust","It promised a 5-year warranty. <span class=x>You offer 2.</span>","proposals quotes bids clients"],
+ [17,"The Mail Merge Machine","mail-merge-machine","cust","22 letters that began <span class=x>\"Dear {{First Name}},\"</span>","mail merge letters customers google sheets"],
+ [16,"The Quote Re-Pricer","quote-repricer","price","It raised the price on a permit that <span class=x>hadn't changed</span>.","quotes repricing materials costs"],
+ [15,"The Staff Scheduler","staff-scheduler","people","\"Nobody near overtime.\" Avery was headed for <span class=x>48.25 hours</span>.","schedule shifts overtime staff"],
+ [14,"The Follow-Up Machine","follow-up-machine","cust","A <span class=x>$14,350</span> quote, silent for 34 days.","follow up quotes sales leads"],
+ [13,"The Receipt Eater","receipt-eater","cash","It logged the <span class=x>$5,000 credit limit</span> as an expense.","receipts expenses scanning bookkeeping"],
+ [12,"The Weekly Owner Report","weekly-owner-report","cash","\"Sales down 73%.\" <span class=x>They were up 5%.</span>","weekly report sales owner dashboard"],
+ [11,"The Reorder Alarm","reorder-alarm","ops","\"38 days of heaters left.\" <span class=x>There were 12.</span>","reorder inventory stock purchasing"],
+ [10,"The No-Show Shield","no-show-shield","cust","What empty chairs <span class=x>really</span> cost a booking business.","no shows appointments bookings salon"],
+ [9,"The Estimate-to-Invoice Pipeline","estimate-to-invoice-pipeline","cash","Five jobs nobody invoiced. <span class=x>There were seven.</span>","estimates invoices jobs billing"],
+ [8,"The Customer Win-Back Machine","customer-winback-machine","cust","Which customers <span class=x>quietly stopped coming back</span>.","customers retention lapsed win back"],
+ [7,"The Margin Leak Finder","margin-leak-finder","price","Which products still make money <span class=x>after every cost</span>.","margins products profit pricing"],
+ [6,"The Supplier Cost-Increase Tracker","supplier-cost-tracker","cost","Same price, <span class=x>fewer sheets in the box</span>.","suppliers price increases shrinkflation costs"],
+ [5,"The Payroll Hours Reconciler","payroll-hours-reconciler","people","Two shifts with <span class=x>no end time</span>, and payroll totaled them anyway.","payroll timesheets hours shifts"],
+ [4,"The Price-Increase Calculator","price-increase-calculator","price","How many customers can you lose <span class=x>before a raise backfires</span>?","price increase raise prices members"],
+ [3,"The Cash-Flow Forecaster","cash-flow-forecaster","cash","Profitable, and <span class=x>$1,870 below zero</span> one Friday in October.","cash flow forecast 13 week bank"],
+ [2,"Voice Leveler","voice-leveler","ops","Clean up a voiceover in your browser, <span class=x>no length cap</span>.","audio voice podcast creator"],
+ [1,"Who Has The Kangaroo","who-has-the-kangaroo","ops","Who has which animal, van and speaker, <span class=x>right now</span>.","sign out equipment tracking checkout"]
+];
+const BASE = "https://jonathangeorgegatz.github.io/";
+const arrow = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const ytIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>';
+const strip = s => s.replace(/<[^>]+>/g,"");
+const $ = id => document.getElementById(id);
+
+// featured = newest
+const [fe,fn,fs,fc,fh] = TOOLS[0];
+$("feat").href = BASE + fs + "/";
+$("feat").innerHTML = `<div class="ep">${fe}</div>
+  <div><span class="tag">★ New this week · Episode ${fe}</span>
+  <h2 style="margin-top:16px">${fn}</h2>
+  <p class="hook" style="margin-top:12px">${fh.replace(/class=x/g,'style="color:var(--c-price);font-weight:750"')}</p></div>
+  <div class="right"><div class="meta">${CATS[fc].name.toUpperCase()} · FREE · NO SIGN-UP</div>
+  <span class="btn">Open ${fn.replace(/^The /,"the ")} ${arrow}</span></div>`;
+
+// chips
+let cat = "all", q = "";
+const counts = {}; TOOLS.forEach(t => counts[t[3]] = (counts[t[3]]||0)+1);
+const chips = [`<button class="chip all" data-c="all" aria-pressed="true">All <span>${TOOLS.length}</span></button>`]
+  .concat(Object.entries(CATS).map(([k,v]) => `<button class="chip" data-c="${k}" style="--k:${v.c}" aria-pressed="false"><i></i>${v.name} <span>${counts[k]||0}</span></button>`));
+$("chips").innerHTML = chips.join("");
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if(!b) return;
+  cat = b.dataset.c;
+  document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x===b ? "true":"false"));
+  render();
+});
+$("q").addEventListener("input", e => { q = e.target.value.trim().toLowerCase(); render(); });
+
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} }), {rootMargin:"0px 0px -6% 0px"}) : null;
+
+function render(){
+  const words = q.split(/\s+/).filter(Boolean);
+  const list = TOOLS.filter(t => (cat==="all" || t[3]===cat) &&
+    words.every(w => (t[1]+" "+strip(t[4])+" "+t[5]+" "+CATS[t[3]].name+" ep"+t[0]+" episode "+t[0]).toLowerCase().includes(w)));
+  $("grid").innerHTML = list.map((t,i) => {
+    const [ep,name,slug,c,hook] = t, k = CATS[c];
+    const vid = t[6];
+    return `<div class="card" style="--k:${k.c};transition-delay:${Math.min(i,8)*35}ms">
+      <a class="stretch" href="${BASE+slug}/" aria-label="Open ${name}"></a>
+      <div class="num">${String(ep).padStart(2,"0")}</div>
+      <div class="top">${k.name}<b>· EP${String(ep).padStart(2,"0")}</b>${ep===TOOLS[0][0]?'<span class="new">NEW</span>':''}</div>
+      <h3>${name}</h3>
+      <p>${hook}</p>
+      <div class="go"><span>Open the tool</span><span class="r">${vid ? `<a class="watch" href="${vid}" target="_blank" rel="noopener">${ytIcon} Watch the build</a>` : ""}${arrow}</span></div></div>`;
+  }).join("");
+  $("count").textContent = list.length === TOOLS.length ? `All ${TOOLS.length} tools · newest first` : `${list.length} of ${TOOLS.length} tools`;
+  $("empty").style.display = list.length ? "none" : "block";
+  document.querySelectorAll(".card").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+}
+render();
+
+// count-up
+(function(){
+  const el = $("nTools"), N = TOOLS.length, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { el.textContent = N; return; }
+  const t0 = performance.now(), D = 1100;
+  (function step(t){ const p = Math.min(1,(t-t0)/D); el.textContent = Math.round(N*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(step); })(t0);
+})();
+
+// sticky bar border
+const bar = $("bar");
+new IntersectionObserver(([e]) => bar.classList.toggle("stuck", e.intersectionRatio < 1), {threshold:[1], rootMargin:"-1px 0px 0px 0px"}).observe(bar);
+</script>
+</body>
+</html>
